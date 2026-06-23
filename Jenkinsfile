@@ -41,7 +41,12 @@ pipeline {
         stage('Lint') {
             steps {
                 echo 'Stage 3: Running style and syntax checks'
-                sh 'flake8 app.py'
+                dir('app') {
+                    sh '''
+                        . venv/bin/activate
+                        flake8 app.py
+                    '''
+                }
             }
         }
 
