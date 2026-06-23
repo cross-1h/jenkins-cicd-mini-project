@@ -38,9 +38,16 @@ pipeline {
             }
         }
 
+        stage('Lint') {
+            steps {
+                echo 'Stage 3: Running style and syntax checks'
+                sh 'flake8 app.py'
+            }
+        }
+
         stage('Test') {
             steps {
-                echo 'Stage 3: Running the unit tests'
+                echo 'Stage 4: Running the unit tests'
                 dir('app') {
                     sh '''
                         . venv/bin/activate
@@ -59,7 +66,7 @@ pipeline {
 
         stage('Docker Build') {
             steps {
-                echo 'Stage 4: Building the Docker image'
+                echo 'Stage 5: Building the Docker image'
                 dir('app') {
                     sh 'docker build -t ${IMAGE_NAME}:${IMAGE_TAG} -t ${IMAGE_NAME}:latest .'
                 }
