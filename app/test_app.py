@@ -4,7 +4,7 @@ Run locally with:  pytest -v
 These same tests run automatically in the Jenkins `Test` stage.
 """
 
-from app import add, app
+from app import add,subtract, app
 
 
 def test_add():
