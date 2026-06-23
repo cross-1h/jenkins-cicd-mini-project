@@ -16,7 +16,7 @@ def add(a, b):
 
 
 def subtract(a, b):
-    """Return the difference of two numbers. 
+    """Return the difference of two numbers.
     Kept pure so it is trivial to test."""
     return a - b
 
