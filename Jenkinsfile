@@ -43,6 +43,7 @@ pipeline {
                 echo 'Stage 3: Running style and syntax checks'
                 dir('app') {
                     sh '''
+                        python3 -m venv venv
                         . venv/bin/activate
                         flake8 app.py
                     '''
